@@ -49,6 +49,7 @@ class SCGEN(VAEMixin, UnsupervisedTrainingMixin, BaseModelClass):
     def __init__(
         self,
         adata: AnnData,
+        activation_fn,
         n_hidden: int = 800,
         n_latent: int = 100,
         n_layers: int = 2,
@@ -63,6 +64,7 @@ class SCGEN(VAEMixin, UnsupervisedTrainingMixin, BaseModelClass):
             n_latent=n_latent,
             n_layers=n_layers,
             dropout_rate=dropout_rate,
+            activation_fn=activation_fn,
             **model_kwargs,
         )
         self._model_summary_string = (

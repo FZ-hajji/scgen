@@ -36,6 +36,7 @@ class SCGENVAE(BaseModuleClass):
     def __init__(
         self,
         n_input: int,
+        activation_fn,
         n_hidden: int = 800,
         n_latent: int = 10,
         n_layers: int = 2,
@@ -65,7 +66,7 @@ class SCGENVAE(BaseModuleClass):
             distribution=latent_distribution,
             use_batch_norm=use_batch_norm_encoder,
             use_layer_norm=use_layer_norm_encoder,
-            activation_fn=torch.nn.LeakyReLU,
+            activation_fn=activation_fn,
         )
 
         n_input_decoder = n_latent
@@ -74,7 +75,7 @@ class SCGENVAE(BaseModuleClass):
             n_input,
             n_layers=n_layers,
             n_hidden=n_hidden,
-            activation_fn=torch.nn.LeakyReLU,
+            activation_fn=activation_fn,
             dropout_rate=dropout_rate,
         )
 

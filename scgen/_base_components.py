@@ -38,6 +38,7 @@ class DecoderSCGEN(nn.Module):
         self,
         n_input: int,
         n_output: int,
+        activation_fn,
         n_cat_list: Iterable[int] = None,
         n_layers: int = 1,
         n_hidden: int = 128,
@@ -51,6 +52,7 @@ class DecoderSCGEN(nn.Module):
             n_cat_list=n_cat_list,
             n_layers=n_layers,
             n_hidden=n_hidden,
+            activation_fn=activation_fn,
             dropout_rate=dropout_rate,
             **kwargs,
         )
